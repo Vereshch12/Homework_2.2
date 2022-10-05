@@ -5,6 +5,10 @@ public class Person {
     private String job;
 
     public Person(String name, Integer yearOfBirth, String city, String job) {
+        if (name == null) name = "Информация не указана";
+        if (city == null) name = "Информация не указана";
+        if (job == null) name = "Информация не указана";
+        if (yearOfBirth < 0) yearOfBirth = 0;
         this.name = name;
         this.yearOfBirth = yearOfBirth;
         this.city = city;
