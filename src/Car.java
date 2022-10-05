@@ -7,6 +7,12 @@ public class Car {
     private String productionCountry;
 
     public Car(String brand, String model, double engineVolume, String color, Integer productionYear, String productionCountry) {
+        if (brand == null) brand = "default";
+        if (model == null) model = "default";
+        if (productionCountry == null) productionCountry = "default";
+        if (color == null) color = "белый";
+        if (engineVolume == 0) engineVolume = 1.5;
+        if (productionYear == null) productionYear = 2000;
         this.brand = brand;
         this.model = model;
         this.engineVolume = engineVolume;
