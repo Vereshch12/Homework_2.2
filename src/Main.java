@@ -23,5 +23,19 @@ public class Main {
         System.out.println("bmw = " + bmw);
         System.out.println("kia = " + kia);
         System.out.println("hyunday = " + hyunday);
+
+        System.out.println();
+
+        // задание "Цветы" (запутался в номерах уже)))
+        Flower rose = new Flower("Роза", null, "Голландия", 35.5911, null);
+        System.out.println("rose = " + rose);
+        Flower hrizantema = new Flower("Хризантема", null, null, 15.00, 5);
+        System.out.println("hrizantema = " + hrizantema);
+        Flower pion = new Flower("Пион", null, "Англия", 69.90, 1);
+        System.out.println("pion = " + pion);
+        System.out.println("pion.getCost() = " + pion.getCost());
+        Flower giposfila = new Flower("Гипосфила", null, "Турция", 19.5, 10);
+        System.out.println("giposfila = " + giposfila);
+
     }
 }
