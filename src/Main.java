@@ -36,6 +36,5 @@ public class Main {
         System.out.println("pion.getCost() = " + pion.getCost());
         Flower giposfila = new Flower("Гипосфила", null, "Турция", 19.5, 10);
         System.out.println("giposfila = " + giposfila);
-
     }
 }
