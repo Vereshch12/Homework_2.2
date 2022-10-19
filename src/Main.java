@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Main {
 
-    public void changeRubbers (Car car){
+    public static void changeRubbers (Car car){
         if(LocalDate.now().getMonth().getValue() > 10 || LocalDate.now().getMonth().getValue() < 3){
             car.setTypeOfRubber("Зимняя");
         }
@@ -41,7 +41,8 @@ public class Main {
         System.out.println("bmw = " + bmw);
         System.out.println("kia = " + kia);
         System.out.println("hyunday = " + hyunday);
-
+        changeRubbers(audi);
+        System.out.println("audi = " + audi);
 
         System.out.println();
 
