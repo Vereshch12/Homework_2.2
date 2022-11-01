@@ -8,14 +8,6 @@ import java.util.regex.Pattern;
 public class Car {
 
     public static class Insurance{
-        @Override
-        public String toString() {
-            return "Страховка:" +
-                    "\n        Срок действия: " + validityPeriod +
-                    "\n        Стоимость: " + cost +
-                    "\n        Номер: " + insuranceNumber;
-        }
-
         private final LocalDate validityPeriod;
         private final Integer cost;
 
@@ -39,6 +31,13 @@ public class Car {
 
         public String getInsuranceNumber() {
             return insuranceNumber;
+        }
+        @Override
+        public String toString() {
+            return "Страховка:" +
+                    "\n        Срок действия: " + validityPeriod +
+                    "\n        Стоимость: " + cost +
+                    "\n        Номер: " + insuranceNumber;
         }
     }
     public static class Key{
