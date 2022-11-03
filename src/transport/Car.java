@@ -82,7 +82,7 @@ public class Car extends Transport{
     private Key key;
     private Insurance insurance;
 
-    public String checkNumber (String number){
+    public static String checkNumber (String number){
         Matcher nomer = Pattern.compile("[А-Я]\\d\\d\\d[А-Я][А-Я]\\d\\d\\d").matcher(number);
         if (nomer.find()){
             return "Номер корректен";
@@ -167,11 +167,13 @@ public class Car extends Transport{
 
     @Override
     public String toString() {
-        return "\n_______________________________" +
+        return "АВТОМОБИЛЬ" +
+                "\n_______________________________" +
                 "\nБренд: " + brand + "\nМодель: " + model +
                 "\nОбъем двигателя: " + engineVolume + "\nЦвет кузова: " + color +
                 "\nГод выпуска: " + productionYear + "\nСтрана сборки: " + productionCountry +
                 "\nКоробка передач: " + transmission + "\nТип кузова: " + type +
+                "\n Максимальная скорость: " + maxSpeed +
                 "\nРегистрационный номер: " + number + "\nКоличество мест: " + numberOfSeats +
                 "\nРезина: " + typeOfRubber +
                 "\n" + key + "\n" + insurance +

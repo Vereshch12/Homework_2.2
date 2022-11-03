@@ -1,5 +1,6 @@
 import transport.Car;
 import transport.Car.Key;
+import transport.Train;
 
 import java.time.LocalDate;
 import java.util.regex.Matcher;
@@ -67,5 +68,12 @@ public class Main {
         kia.setKey(key1);
         System.out.println("\nkia = " + kia);
         checkInsuranceNumber(hyunday);
+        System.out.println("\n\n\n");
+        Train lastochka = new Train("Ласточка", "B-901", 2011, "Россия", "", 301,
+                3500, "Белорусский вокзал", "Минск-Пассажирский", 11);
+        Train leningrad = new Train("Ленинград", "D-125", 2019, "Россия", "", 270,
+                         1700, "Ленинградский вокзал", "Ленинград-Пассажирский", 8);
+        System.out.println("lastochka = " + lastochka);
+        System.out.println("leningrad = " + leningrad);
     }
 }
