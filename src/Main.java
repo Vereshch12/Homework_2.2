@@ -1,3 +1,4 @@
+import transport.Bus;
 import transport.Car;
 import transport.Car.Key;
 import transport.Train;
@@ -68,12 +69,19 @@ public class Main {
         kia.setKey(key1);
         System.out.println("\nkia = " + kia);
         checkInsuranceNumber(hyunday);
-        System.out.println("\n\n\n");
+        System.out.println("\n\n");
         Train lastochka = new Train("Ласточка", "B-901", 2011, "Россия", "", 301,
                 3500, "Белорусский вокзал", "Минск-Пассажирский", 11);
         Train leningrad = new Train("Ленинград", "D-125", 2019, "Россия", "", 270,
                          1700, "Ленинградский вокзал", "Ленинград-Пассажирский", 8);
         System.out.println("lastochka = " + lastochka);
         System.out.println("leningrad = " + leningrad);
+        System.out.println("\n\n");
+        Bus huyndaiBus = new Bus("Hyundai", "Universe", 2016, "Южная Корея", "Серый", 142);
+        Bus volvoBus = new Bus("Volvo", "8900", 2013, "Швеция", "", 150);
+        Bus scaniaBus = new Bus("Scania", "OmniExpress", 2010, "Швеция", "Желтый", 140);
+        System.out.println("huyndaiBus = " + huyndaiBus);
+        System.out.println("volvoBus = " + volvoBus);
+        System.out.println("scaniaBus = " + scaniaBus);
     }
 }
