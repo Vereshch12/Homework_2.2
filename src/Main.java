@@ -35,19 +35,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        //Задание 1-2
-        Person maxim = new Person("Максим", 1987, "Минск", "бренд-менеджер");
-        //maxim.welcome();
-        Person anya = new Person(null, 1993, "Москва", "методист образовательных программ\n");
-        //anya.welcome();
-        Person katya = new Person("Катя", 1994, "Калининград", "продакт-менеджер");
-        //katya.welcome();
-        Person artem = new Person("Артём", 1995, "Москва", "директор по развитию бизнеса");
-        //artem.welcome();
-
-        System.out.println();
-
-        //Задание №3
         Key key1 = new Key("Есть", "Нет");
         Car.Insurance insuranceLada = new Car.Insurance(LocalDate.of(2023, 1, 1), 5000, "123mj7898");
         Car.Insurance insuranceAudi = new Car.Insurance(LocalDate.of(2020, 1, 1), 0, "12mj7898");
@@ -75,20 +62,5 @@ public class Main {
         kia.setKey(key1);
         System.out.println("\nkia = " + kia);
         checkInsuranceNumber(hyunday);
-
-
-        System.out.println();
-
-
-        // задание "Цветы" (запутался в номерах уже)))
-        Flower rose = new Flower("Роза", null, "Голландия", 35.5911, null);
-        //System.out.println("rose = " + rose);
-        Flower hrizantema = new Flower("Хризантема", null, null, 15.00, 5);
-        //System.out.println("hrizantema = " + hrizantema);
-        Flower pion = new Flower("Пион", null, "Англия", 69.90, 1);
-        //System.out.println("pion = " + pion);
-        //System.out.println("pion.getCost() = " + pion.getCost());
-        Flower giposfila = new Flower("Гипосфила", null, "Турция", 19.5, 10);
-        //System.out.println("giposfila = " + giposfila);
     }
 }
