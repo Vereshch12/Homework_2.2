@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Car {
+public class Car extends Transport{
 
     public static class Insurance{
         private final LocalDate validityPeriod;
@@ -72,12 +72,8 @@ public class Car {
         }
     }
 
-    private String brand;
-    private String model;
+
     private double engineVolume;
-    private String color;
-    private Integer productionYear;
-    private String productionCountry;
     private String transmission;
     private String type;
     private String number;
@@ -100,29 +96,21 @@ public class Car {
     }
 
     public Car(String brand, String model, double engineVolume, String color, Integer productionYear, String productionCountry,
-                    String transmission, String type, String number, Integer numberOfSeats, String typeOfRubber, Insurance insurance) {
-        if (transmission == null || transmission.equals("")) transmission = "default";
-        if (type == null || type.equals("")) type = "default";
+                    String transmission, String type, String number, Integer numberOfSeats, String typeOfRubber,
+               Insurance insurance, Integer maxSpeed) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+        checkNaming(transmission);
+        checkNaming(type);
         if (checkNumber(number).equalsIgnoreCase("Номер не корректен")) number = "default";
         if (numberOfSeats == null || numberOfSeats < 2) numberOfSeats = 5;
         if (typeOfRubber == null || !checkRubber(typeOfRubber) || typeOfRubber.equals("")) typeOfRubber = "default";
-        if (brand == null || brand.equals("")) brand = "default";
-        if (model == null || model.equals("")) model = "default";
-        if (productionCountry == null || productionCountry.equals("")) productionCountry = "default";
-        if (color == null || color.equals("")) color = "белый";
         if (engineVolume == 0) engineVolume = 1.5;
-        if (productionYear == null) productionYear = 2000;
         this.transmission = transmission;
         this.type = type;
         this.number = number;
         this.numberOfSeats = numberOfSeats;
         this.typeOfRubber = typeOfRubber;
-        this.brand = brand;
-        this.model = model;
         this.engineVolume = engineVolume;
-        this.color = color;
-        this.productionYear = productionYear;
-        this.productionCountry = productionCountry;
         this.insurance = insurance;
     }
 
@@ -135,21 +123,12 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (color == null || color.equals("")) color = "белый";
-        this.color = color;
-    }
-
     public String getTransmission() {
         return transmission;
     }
 
     public void setTransmission(String transmission) {
-        if (transmission == null || transmission.equals("")) transmission = "default";
+        checkNaming(transmission);
         this.transmission = transmission;
     }
 

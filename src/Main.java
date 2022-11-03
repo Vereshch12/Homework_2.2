@@ -42,15 +42,20 @@ public class Main {
         Car.Insurance insuranceKia = new Car.Insurance(LocalDate.of(2021, 1, 1), 7650, "mj7898");
         Car.Insurance insuranceHyundai = new Car.Insurance(LocalDate.of(2023, 1, 1), 5000, "1243mj7898");
         Car lada = new Car("Lada", "Grande",0, "желтый", 2015, "Россия",
-                           "Механическая", "Хэтчбек", "Т123ПЛ123", 4, "Летняя", insuranceLada );
+                           "Механическая", "Хэтчбек", "Т123ПЛ123", 4,
+                "Летняя", insuranceLada, 190 );
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, "черный", 2020,"Германия",
-                           "Автоматическая", "Внедорожник", "1234JF234", 5, "зимняя", insuranceAudi);
+                           "Автоматическая", "Внедорожник", "1234JF234", 5,
+                "зимняя", insuranceAudi, 300);
         Car bmw = new Car("BMW", "Z8", 3, "черный", 2021, "Германия",
-                          "Автоматическая", "Минивэн", "а234ло234", 2, "лето", insuranceBmw);
+                          "Автоматическая", "Минивэн", "а234ло234", 2,
+                "лето", insuranceBmw, 280);
         Car kia = new Car("Kia", "Sportage 4 поколения", 2.4, "", 2018, "Южная Корея",
-                          "Механическая", "Кроссовер", "Д743ЖП543", null, "Летняя", insuranceKia);
+                          "Механическая", "Кроссовер", "Д743ЖП543", null,
+                "Летняя", insuranceKia, 0);
         Car hyunday = new Car("Hyunday", "Avante", 1.6, "оранжевый", 2016, "Южная Корея",
-                              "Автомат", "Кроссовер", "k123kj45", 4, "летняя", insuranceHyundai);
+                              "Автомат", "Кроссовер", "k123kj45", 4,
+                "летняя", insuranceHyundai, 190);
         System.out.println("\nlada = " + lada);
         System.out.println("\naudi = " + audi);
         System.out.println("\nbmw = " + bmw);
