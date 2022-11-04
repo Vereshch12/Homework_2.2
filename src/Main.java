@@ -45,19 +45,19 @@ public class Main {
         Car.Insurance insuranceHyundai = new Car.Insurance(LocalDate.of(2023, 1, 1), 5000, "1243mj7898");
         Car lada = new Car("Lada", "Grande",0, "желтый", 2015, "Россия",
                            "Механическая", "Хэтчбек", "Т123ПЛ123", 4,
-                "Летняя", insuranceLada, 190 );
+                "Летняя", insuranceLada, 190, "бензиновый" );
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, "черный", 2020,"Германия",
                            "Автоматическая", "Внедорожник", "1234JF234", 5,
-                "зимняя", insuranceAudi, 300);
+                "зимняя", insuranceAudi, 300, "электрический");
         Car bmw = new Car("BMW", "Z8", 3, "черный", 2021, "Германия",
                           "Автоматическая", "Минивэн", "а234ло234", 2,
-                "лето", insuranceBmw, 280);
+                "лето", insuranceBmw, 280, "бенз");
         Car kia = new Car("Kia", "Sportage 4 поколения", 2.4, "", 2018, "Южная Корея",
                           "Механическая", "Кроссовер", "Д743ЖП543", null,
-                "Летняя", insuranceKia, 0);
+                "Летняя", insuranceKia, 0, "дизельный");
         Car hyunday = new Car("Hyunday", "Avante", 1.6, "оранжевый", 2016, "Южная Корея",
                               "Автомат", "Кроссовер", "k123kj45", 4,
-                "летняя", insuranceHyundai, 190);
+                "летняя", insuranceHyundai, 190, "Бензиновый");
         System.out.println("\nlada = " + lada);
         System.out.println("\naudi = " + audi);
         System.out.println("\nbmw = " + bmw);
@@ -77,11 +77,27 @@ public class Main {
         System.out.println("lastochka = " + lastochka);
         System.out.println("leningrad = " + leningrad);
         System.out.println("\n\n");
-        Bus huyndaiBus = new Bus("Hyundai", "Universe", 2016, "Южная Корея", "Серый", 142);
-        Bus volvoBus = new Bus("Volvo", "8900", 2013, "Швеция", "", 150);
-        Bus scaniaBus = new Bus("Scania", "OmniExpress", 2010, "Швеция", "Желтый", 140);
+        Bus huyndaiBus = new Bus("Hyundai", "Universe", 2016, "Южная Корея",
+                "Серый", 142, "электрический");
+        Bus volvoBus = new Bus("Volvo", "8900", 2013, "Швеция", "",
+                150, "бензиновый");
+        Bus scaniaBus = new Bus("Scania", "OmniExpress", 2010, "Швеция",
+                "Желтый", 140, "ДиЗельный");
         System.out.println("huyndaiBus = " + huyndaiBus);
         System.out.println("volvoBus = " + volvoBus);
         System.out.println("scaniaBus = " + scaniaBus);
+        System.out.println("\n\n");
+        lada.refill();
+        audi.refill();
+        bmw.refill();
+        kia.refill();
+        hyunday.refill();
+        System.out.println("\n");
+        lastochka.refill();
+        leningrad.refill();
+        System.out.println("\n");
+        huyndaiBus.refill();
+        volvoBus.refill();
+        scaniaBus.refill();
     }
 }

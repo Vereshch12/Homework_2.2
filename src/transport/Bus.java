@@ -1,8 +1,22 @@
 package transport;
 
 public class Bus extends Transport{
-    public Bus(String brand, String model, Integer productionYear, String productionCountry, String color, Integer maxSpeed) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+    public Bus(String brand, String model, Integer productionYear, String productionCountry, String color,
+               Integer maxSpeed, String motorType1) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed, motorType1);
+        if (!(motorType.equalsIgnoreCase("бензиновый") || motorType.equalsIgnoreCase("'дизельный")))
+            motorType = "бензиновый";
+    }
+
+    @Override
+    public void refill() {
+        if (motorType.equalsIgnoreCase("бензиновый")) {
+            System.out.println("Автобус " + brand + " " + model + " заправлен бензином");
+        }
+        else {
+            System.out.println("Автобус " + brand + " " + model + " заправлен дизелем");
+        }
+
     }
 
     @Override

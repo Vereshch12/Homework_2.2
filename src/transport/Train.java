@@ -8,9 +8,10 @@ public class Train extends Transport{
 
     private Integer numberOfCarriages;
 
+
     public Train(String brand, String model, Integer productionYear, String productionCountry, String color, Integer maxSpeed, Integer ticketPrice,
                  String departureStationName, String arrivalStationName, Integer numberOfCarriages) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+        super(brand, model, productionYear, productionCountry, color, maxSpeed,"Дизельный");
         checkNaming(departureStationName);
         checkNaming(arrivalStationName);
         if (ticketPrice == 0) ticketPrice = 1000;
@@ -19,6 +20,11 @@ public class Train extends Transport{
         this.departureStationName = departureStationName;
         this.arrivalStationName = arrivalStationName;
         this.numberOfCarriages = numberOfCarriages;
+    }
+
+    @Override
+    public void refill() {
+        System.out.println("Поезд " + brand + " " + model + " заправлен дизелем");
     }
 
     public Integer getTicketPrice() {

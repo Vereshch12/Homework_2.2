@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 
 
 public class Car extends Transport{
-
     public static class Insurance{
         private final LocalDate validityPeriod;
         private final Integer cost;
@@ -97,13 +96,13 @@ public class Car extends Transport{
 
     public Car(String brand, String model, double engineVolume, String color, Integer productionYear, String productionCountry,
                     String transmission, String type, String number, Integer numberOfSeats, String typeOfRubber,
-               Insurance insurance, Integer maxSpeed) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed);
+               Insurance insurance, Integer maxSpeed, String motorType) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed, motorType);
         checkNaming(transmission);
         checkNaming(type);
         if (checkNumber(number).equalsIgnoreCase("Номер не корректен")) number = "default";
         if (numberOfSeats == null || numberOfSeats < 2) numberOfSeats = 5;
-        if (typeOfRubber == null || !checkRubber(typeOfRubber) || typeOfRubber.equals("")) typeOfRubber = "default";
+        if (!checkRubber(typeOfRubber)) typeOfRubber = "default";
         if (engineVolume == 0) engineVolume = 1.5;
         this.transmission = transmission;
         this.type = type;
@@ -130,6 +129,19 @@ public class Car extends Transport{
     public void setTransmission(String transmission) {
         checkNaming(transmission);
         this.transmission = transmission;
+    }
+
+    @Override
+    public void refill() {
+        if (motorType.equalsIgnoreCase("бензиновый")) {
+            System.out.println("Автомобиль " + brand + " " + model + " заправлен бензином");
+        }
+        else {
+            if (motorType.equalsIgnoreCase("дизельный"))
+                System.out.println("Автомобиль " + brand + " " + model + " заправлен дизелем");
+            else
+                System.out.println("Автомобиль " + brand + " " + model + " заряжен");
+        }
     }
 
     public String getNumber() {
@@ -173,7 +185,7 @@ public class Car extends Transport{
                 "\nОбъем двигателя: " + engineVolume + "\nЦвет кузова: " + color +
                 "\nГод выпуска: " + productionYear + "\nСтрана сборки: " + productionCountry +
                 "\nКоробка передач: " + transmission + "\nТип кузова: " + type +
-                "\n Максимальная скорость: " + maxSpeed +
+                "\nМаксимальная скорость: " + maxSpeed +
                 "\nРегистрационный номер: " + number + "\nКоличество мест: " + numberOfSeats +
                 "\nРезина: " + typeOfRubber +
                 "\n" + key + "\n" + insurance +
