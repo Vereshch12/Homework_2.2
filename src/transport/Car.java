@@ -6,7 +6,22 @@ import java.util.regex.Pattern;
 
 
 public class Car extends Transport{
-    public static class Insurance{
+    public Car(String brand, String model, double engineVolume) {
+        super(brand, model, engineVolume);
+    }
+
+    @Override
+    public void startDriving() {
+        System.out.println("\nЛегковой автомобиль " + brand + " " + model + " начал движение!");
+    }
+
+    @Override
+    public void stopDriving() {
+        System.out.println("\nЛегковой автомобиль " + brand + " " + model + " закончил движение!");
+    }
+
+
+    /*public static class Insurance{
         private final LocalDate validityPeriod;
         private final Integer cost;
 
@@ -190,6 +205,6 @@ public class Car extends Transport{
                 "\nРезина: " + typeOfRubber +
                 "\n" + key + "\n" + insurance +
                 "\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾";
-    }
+    }*/
 
 }

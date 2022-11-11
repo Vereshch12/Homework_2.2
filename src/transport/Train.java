@@ -1,9 +1,9 @@
-package transport;
+//package transport;
 
-public class Train extends Transport{
-    private Integer ticketPrice;
-    private Integer timeOfTrip; /*не понял как и где это использовать*/
-    private String departureStationName;
+//public class Train extends Transport{
+    //private Integer ticketPrice;
+    //private Integer timeOfTrip; /*не понял как и где это использовать*/
+    /*private String departureStationName;
     private String arrivalStationName;
 
     private Integer numberOfCarriages;
@@ -80,4 +80,4 @@ public class Train extends Transport{
                 "\nСкорость: " + maxSpeed + "\nКоличество вагонов: " + numberOfCarriages +
                 "\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾";
     }
-}
+}*/

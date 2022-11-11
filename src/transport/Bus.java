@@ -1,7 +1,20 @@
 package transport;
 
 public class Bus extends Transport{
-    public Bus(String brand, String model, Integer productionYear, String productionCountry, String color,
+    public Bus(String brand, String model, double engineVolume) {
+        super(brand, model, engineVolume);
+    }
+
+    @Override
+    public void startDriving() {
+        System.out.println("\nАвтобус " + brand + " " + model + " начал движение!");
+    }
+
+    @Override
+    public void stopDriving() {
+        System.out.println("\nАвтобус " + brand + " " + model + " закончил движение!");
+    }
+    /*public Bus(String brand, String model, Integer productionYear, String productionCountry, String color,
                Integer maxSpeed, String motorType1) {
         super(brand, model, productionYear, productionCountry, color, maxSpeed, motorType1);
         if (!(motorType.equalsIgnoreCase("бензиновый") || motorType.equalsIgnoreCase("'дизельный")))
@@ -28,5 +41,5 @@ public class Bus extends Transport{
                 "\nГод выпуска: " + productionYear + "\nСтрана сборки: " + productionCountry +
                 "\nМаксимальная скорость: " + maxSpeed +
                 "\n‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾";
-    }
+    }*/
 }
