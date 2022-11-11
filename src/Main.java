@@ -30,6 +30,9 @@ public class Main {
         liazBus.stopDriving();
         bmw.stopDriving();
         System.out.println(volvoBus);
+        kamazTruck.pitStop();
+        scaniaBus.bestTime();
+        kia.maxSpeed();
 
 
     /*public void checkInsurance(Car car){

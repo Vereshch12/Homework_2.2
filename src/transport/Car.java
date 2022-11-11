@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
-public class Car extends Transport{
+public class Car extends Transport implements Competing{
     public Car(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
@@ -20,6 +20,20 @@ public class Car extends Transport{
         System.out.println("\nЛегковой автомобиль " + brand + " " + model + " закончил движение!");
     }
 
+    @Override
+    public void pitStop() {
+        System.out.println("\nЛегковой автомобиль " + brand + " " + model + " остановился на пит-стоп.");
+    }
+
+    @Override
+    public void bestTime() {
+        System.out.println("\nЛучшее время легкового автомобиля " + brand + " " + model + ": " + null);
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("\nМаксимальная скорость легкового автомобиля " + brand + " " + model + ": " + null);
+    }
 
     /*public static class Insurance{
         private final LocalDate validityPeriod;

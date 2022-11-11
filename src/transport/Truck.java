@@ -1,6 +1,6 @@
 package transport;
 
-public class Truck extends Transport {
+public class Truck extends Transport implements Competing{
     public Truck(String brand, String model, double engineVolume) {
         super(brand, model, engineVolume);
     }
@@ -13,5 +13,20 @@ public class Truck extends Transport {
     @Override
     public void stopDriving() {
         System.out.println("\nГрузовик " + brand + " " + model + " закончил движение!");
+    }
+
+    @Override
+    public void pitStop() {
+        System.out.println("\nГрузовик " + brand + " " + model + " остановился на пит-стоп.");
+    }
+
+    @Override
+    public void bestTime() {
+        System.out.println("\nЛучшее время грузовика " + brand + " " + model + ": " + null);
+    }
+
+    @Override
+    public void maxSpeed() {
+        System.out.println("\nМаксимальная скорость грузовика " + brand + " " + model + ": " + null);
     }
 }

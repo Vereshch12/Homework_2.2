@@ -6,9 +6,8 @@ public interface Competing {
 
     void pitStop();
 
-    Integer bestTime();
+    void bestTime();
 
-    Integer maxSpeed();
-
+    void maxSpeed();
 
 }
