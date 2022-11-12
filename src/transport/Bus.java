@@ -1,8 +1,46 @@
 package transport;
 
 public class Bus extends Transport implements Competing{
-    public Bus(String brand, String model, double engineVolume) {
+    public enum BusCapacity {
+        EXTRA_SMALL ("Особо малая (до 10 мест)"),
+        SMALL ("Малая (до 25 мест)"),
+        AVERAGE ("Средняя (40-50 мест)"),
+        BIG ("Большая (60-80 мест)"),
+        EXTRA_BIG ("Особо большая (100-120 мест)");
+
+        public static BusCapacity findByKeyboardBusCapcity(String keyboardBusCapacity){
+            for (BusCapacity capacityOfBus: values()){
+                if (capacityOfBus.getBusCapacity().equalsIgnoreCase(keyboardBusCapacity)){
+                    return capacityOfBus;
+                }
+            }
+            return null;
+        }
+
+        private String busCapacity;
+
+        BusCapacity(String busCapacity) {
+            this.busCapacity = busCapacity;
+        }
+
+        public String getBusCapacity() {
+            return busCapacity;
+        }
+
+        @Override
+        public String toString() {
+            return
+                    "\nВместимость автобуса: " + busCapacity;
+        }
+
+    }
+    private BusCapacity busCapacity;
+    public Bus(String brand, String model, double engineVolume,BusCapacity busCapacity) {
         super(brand, model, engineVolume);
+        if (busCapacity == null){
+            throw new IllegalArgumentException("Неверно введен тип вместимости автобуса " + brand + " " + model +"!");
+        }
+        this.busCapacity = busCapacity;
     }
 
     @Override
@@ -28,6 +66,15 @@ public class Bus extends Transport implements Competing{
     @Override
     public void maxSpeed() {
         System.out.println("\nМаксимальная скорость автобуса " + brand + " " + model + ": " + null);
+    }
+
+    public BusCapacity getBusCapacity() {
+        return busCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + getBusCapacity();
     }
     /*public Bus(String brand, String model, Integer productionYear, String productionCountry, String color,
                Integer maxSpeed, String motorType1) {

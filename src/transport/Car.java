@@ -6,8 +6,45 @@ import java.util.regex.Pattern;
 
 
 public class Car extends Transport implements Competing{
-    public Car(String brand, String model, double engineVolume) {
+    public enum CarBody {
+        SEDAN ("Седан"), HATCHBACK ("Хетчбек"),
+        COUPE ("Купе"), UNIVERSAL ("Универсал"),
+        SUV ("Внедорожник"), CROSSOVER ("Кроссовер"),
+        PICKUP ("Пикап"), VAN ("Фургон"),
+        MINIVAN("Минивэн");
+
+        public static CarBody findByKeyboardBodyOfCar(String keyboardBodyOfCar){
+            for (CarBody bodyCar: values()){
+                if (bodyCar.getBodyOfCar().equalsIgnoreCase(keyboardBodyOfCar)){
+                    return bodyCar;
+                }
+            }
+            return null;
+        }
+        private String bodyOfCar;
+
+        CarBody(String bodyOfCar) {
+            this.bodyOfCar = bodyOfCar;
+        }
+
+        public String getBodyOfCar() {
+            return bodyOfCar;
+        }
+
+        @Override
+        public String toString() {
+            return
+                    "\nКузов автомобиля: " + bodyOfCar;
+        }
+    }
+
+    private CarBody carBody;
+    public Car(String brand, String model, double engineVolume, CarBody carBody) {
         super(brand, model, engineVolume);
+        if (carBody == null){
+            throw new IllegalArgumentException("Неверно введен тип кузова автомобиля " + brand + " " + model +"!");
+        }
+        this.carBody = carBody;
     }
 
     @Override
@@ -33,6 +70,15 @@ public class Car extends Transport implements Competing{
     @Override
     public void maxSpeed() {
         System.out.println("\nМаксимальная скорость легкового автомобиля " + brand + " " + model + ": " + null);
+    }
+
+    public CarBody getCarBody() {
+        return carBody;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + getCarBody();
     }
 
     /*public static class Insurance{

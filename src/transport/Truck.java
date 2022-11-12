@@ -1,8 +1,44 @@
 package transport;
 
 public class Truck extends Transport implements Competing{
-    public Truck(String brand, String model, double engineVolume) {
+    public enum LoadCapacity {
+        N1 ("N1 (c полной массой до 3,5 тонн)"),
+        N2 ("N2 (с полной массой свыше 3,5 до 12 тонн)"),
+        N3 ("N3 (с полной массой свыше 12 тонн)");
+
+        public static LoadCapacity findByKeyboardLoadCapacity(String keyboardLoadCapacity){
+            for (LoadCapacity capacityOfTruck: values()){
+                if (capacityOfTruck.getLoadCapacity().equalsIgnoreCase(keyboardLoadCapacity)){
+                    return capacityOfTruck;
+                }
+            }
+            return null;
+        }
+
+        private String loadCapacity;
+
+        LoadCapacity(String loadCapacity) {
+            this.loadCapacity = loadCapacity;
+        }
+
+        public String getLoadCapacity() {
+            return loadCapacity;
+        }
+
+        @Override
+        public String toString() {
+            return
+                    "\nТип грузоподъемности: " + loadCapacity;
+        }
+    }
+
+    private LoadCapacity loadCapacity;
+    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume);
+        if (loadCapacity == null){
+            throw new IllegalArgumentException("Неверно введен тип грузоподъемности грузовика " + brand + " " + model +"!");
+        }
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -28,5 +64,14 @@ public class Truck extends Transport implements Competing{
     @Override
     public void maxSpeed() {
         System.out.println("\nМаксимальная скорость грузовика " + brand + " " + model + ": " + null);
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + getLoadCapacity();
     }
 }

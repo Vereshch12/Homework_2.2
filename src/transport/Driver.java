@@ -14,7 +14,7 @@ public class Driver <T extends Transport & Competing> {
         this.car = car;
         setLicensse(licensse);
         if (this.licensse.equals("default")){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Измените категорию!");
         }
     }
 
