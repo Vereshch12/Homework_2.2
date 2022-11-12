@@ -4,9 +4,6 @@ import transport.Truck;
 //import transport.Car.Key;
 //import transport.Train;
 
-import java.time.LocalDate;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,12 +20,12 @@ public class Main {
         Truck manTruck = new Truck("MAN", "TGL", 7.2);
         Truck hyundaiTruck = new Truck("Hyundai", "HD 78", 4.1);
         Truck mercedesTruck = new Truck("Mercedes", "Actros", 14.5);
-        hyundaiTruck.startDriving();
-        hyundaiTruck.stopDriving();
-        liazBus.startDriving();
-        bmw.startDriving();
-        liazBus.stopDriving();
-        bmw.stopDriving();
+        hyundaiTruck.startMoving();
+        hyundaiTruck.stopMoving();
+        liazBus.startMoving();
+        bmw.startMoving();
+        liazBus.stopMoving();
+        bmw.stopMoving();
         System.out.println(volvoBus);
         kamazTruck.pitStop();
         scaniaBus.bestTime();

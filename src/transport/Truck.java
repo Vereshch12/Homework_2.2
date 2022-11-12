@@ -6,12 +6,12 @@ public class Truck extends Transport implements Competing{
     }
 
     @Override
-    public void startDriving() {
+    public void startMoving() {
         System.out.println("\nГрузовик " + brand + " " + model + " начал движение!");
     }
 
     @Override
-    public void stopDriving() {
+    public void stopMoving() {
         System.out.println("\nГрузовик " + brand + " " + model + " закончил движение!");
     }
 

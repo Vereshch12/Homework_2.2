@@ -46,8 +46,8 @@ public abstract class Transport {
     }
     //protected abstract void refill();
 
-    public abstract void startDriving();
-    public abstract void stopDriving();
+    public abstract void startMoving();
+    public abstract void stopMoving();
 
 
     public String getBrand() {

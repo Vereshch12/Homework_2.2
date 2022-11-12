@@ -6,18 +6,18 @@ public class Bus extends Transport implements Competing{
     }
 
     @Override
-    public void startDriving() {
+    public void startMoving() {
         System.out.println("\nАвтобус " + brand + " " + model + " начал движение!");
     }
 
     @Override
-    public void stopDriving() {
+    public void stopMoving() {
         System.out.println("\nАвтобус " + brand + " " + model + " закончил движение!");
     }
 
     @Override
     public void pitStop() {
-        System.out.println("\nАвтобус " + brand + " " + model + " остановился на пит-стоп.");
+        System.out.println("\nАвтобус " + brand + " " + model + " остановился на пит-стопе для заправки.");
     }
 
     @Override

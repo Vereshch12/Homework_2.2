@@ -1,10 +1,7 @@
 package transport;
 
-import transport.Bus;
-import transport.Car;
-import transport.Truck;
-
 public class Racing {
+
     public static void main(String[] args) {
 
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0);
@@ -19,16 +16,21 @@ public class Racing {
         Truck manTruck = new Truck("MAN", "TGL", 7.2);
         Truck hyundaiTruck = new Truck("Hyundai", "HD 78", 4.1);
         Truck mercedesTruck = new Truck("Mercedes", "Actros", 14.5);
-        hyundaiTruck.startDriving();
-        hyundaiTruck.stopDriving();
-        liazBus.startDriving();
-        bmw.startDriving();
-        liazBus.stopDriving();
-        bmw.stopDriving();
+        hyundaiTruck.startMoving();
+        hyundaiTruck.stopMoving();
+        liazBus.startMoving();
+        bmw.startMoving();
+        liazBus.stopMoving();
+        bmw.stopMoving();
         System.out.println(volvoBus);
         kamazTruck.pitStop();
         scaniaBus.bestTime();
         kia.maxSpeed();
         kia.maxSpeed();
+        Driver<Bus> pit = new Driver("Пит", "D", 2, volvoBus);
+        Driver<Car> max = new Driver("Макс", "C", 3, mercedesTruck);
+        max.startDriving();
+        pit.stopDriving();
+        max.refuel();
     }
 }
