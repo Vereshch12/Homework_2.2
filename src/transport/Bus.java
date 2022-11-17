@@ -68,6 +68,13 @@ public class Bus extends Transport implements Competing{
         System.out.println("\nМаксимальная скорость автобуса " + brand + " " + model + ": " + null);
     }
 
+    @Override
+    public void undergoDiagnostics() {
+        System.out.println("Автобус " + getBrand() + " " + getModel() + " в диагностике не нуждается!" );
+    }
+
+
+
     public BusCapacity getBusCapacity() {
         return busCapacity;
     }

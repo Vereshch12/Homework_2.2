@@ -58,6 +58,19 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
+    public void undergoDiagnostics() throws LicensseCategoryException, PassageOfDiagnosticsException {
+        if (!(getDriver().getLicensse().equals("B"))){
+            throw new LicensseCategoryException ("Требуется изменить категорию прав водителю " + getDriver().getName());
+        }
+        if (Math.random() > 0.5){
+            System.out.println("Легковой автомобиль " + getBrand() + " " + getModel() + " прошел диагностику!" );
+        }
+        else {
+            throw new PassageOfDiagnosticsException("Легковой автомобиль " + getBrand() + " " + getModel() + " не прошел диагностику!" );
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("\nЛегковой автомобиль " + brand + " " + model + " остановился на пит-стоп.");
     }
@@ -71,6 +84,8 @@ public class Car extends Transport implements Competing{
     public void maxSpeed() {
         System.out.println("\nМаксимальная скорость легкового автомобиля " + brand + " " + model + ": " + null);
     }
+
+
 
     public CarBody getCarBody() {
         return carBody;

@@ -11,6 +11,15 @@ public abstract class Transport {
     //protected Integer maxSpeed;
     //protected String motorType;
     protected double engineVolume;
+    private Driver driver;
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
 
     public void checkNaming (String line){
         if (line == null || line.isEmpty() || line.isBlank()) line= "default";
@@ -48,6 +57,8 @@ public abstract class Transport {
 
     public abstract void startMoving();
     public abstract void stopMoving();
+
+    public abstract void undergoDiagnostics() throws LicensseCategoryException, PassageOfDiagnosticsException;
 
 
     public String getBrand() {

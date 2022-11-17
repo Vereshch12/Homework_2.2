@@ -3,7 +3,7 @@ package transport;
 
 public class Racing {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws LicensseCategoryException, PassageOfDiagnosticsException {
 
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, Car.CarBody.SUV);
         Car bmw = new Car("BMW", "Z8", 3, Car.CarBody.SEDAN);
@@ -29,7 +29,8 @@ public class Racing {
         kia.maxSpeed();
         kia.maxSpeed();
         Driver<Bus> pit = new Driver("Пит", "D", 2, volvoBus);
-        Driver<Car> max = new Driver("Макс", "C", 3, mercedesTruck);
+        Driver<Car> max = new Driver("Макс", "B", 3, audi);
+        Driver<Truck> mikel = new Driver("Maйкл", "C", 3, mercedesTruck);
         max.startDriving();
         pit.stopDriving();
         max.refuel();
@@ -40,5 +41,9 @@ public class Racing {
         System.out.println(manTruck);
         System.out.println(hyundaiTruck);
         System.out.println(kamazTruck);
+        System.out.println(audi.getDriver().getLicensse());
+        volvoBus.undergoDiagnostics();
+        audi.undergoDiagnostics();
+        mercedesTruck.undergoDiagnostics();
     }
 }

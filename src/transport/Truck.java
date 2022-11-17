@@ -52,6 +52,19 @@ public class Truck extends Transport implements Competing{
     }
 
     @Override
+    public void undergoDiagnostics() throws LicensseCategoryException, PassageOfDiagnosticsException {
+        if (!(getDriver().getLicensse().equals("C"))){
+            throw new LicensseCategoryException ("Требуется изменить категорию прав водителю " + getDriver().getName() + "!");
+        }
+        if (Math.random() > 0.5){
+            System.out.println("Грузовой автомобиль " + getBrand() + " " + getModel() + " прошел диагностику!" );
+        }
+        else {
+            throw new PassageOfDiagnosticsException("Грузовой автомобиль " + getModel() + " " + getBrand() + " не прошел диагностику!" );
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("\nГрузовик " + brand + " " + model + " остановился на пит-стоп.");
     }
@@ -65,6 +78,8 @@ public class Truck extends Transport implements Competing{
     public void maxSpeed() {
         System.out.println("\nМаксимальная скорость грузовика " + brand + " " + model + ": " + null);
     }
+
+
 
     public LoadCapacity getLoadCapacity() {
         return loadCapacity;

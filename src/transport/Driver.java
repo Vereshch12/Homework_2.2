@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.Objects;
+
 public class Driver <T extends Transport & Competing> {
     private String name;
     private String licensse;
@@ -14,8 +16,9 @@ public class Driver <T extends Transport & Competing> {
         this.car = car;
         setLicensse(licensse);
         if (this.licensse.equals("default")){
-            throw new IllegalArgumentException("Измените категорию!");
+            System.out.println(("Измените категорию прав"));
         }
+        car.setDriver(this);
     }
 
     private void setLicensse(String licensse) {
@@ -102,4 +105,16 @@ public class Driver <T extends Transport & Competing> {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return Objects.equals(name, driver.name) && Objects.equals(licensse, driver.licensse) && Objects.equals(experience, driver.experience) && Objects.equals(car, driver.car);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, licensse, experience, car);
+    }
 }
