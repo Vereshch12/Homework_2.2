@@ -1,10 +1,12 @@
 package transport;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Racing {
+    public static List<Transport> transportList = new ArrayList<>();
+    public static List<Driver> driverList = new ArrayList<>();
 
-    public static void main(String[] args) throws LicensseCategoryException, PassageOfDiagnosticsException {
-
+    public static void main(String[] args) throws LicensseCategoryException, PassageOfDiagnosticsException, SpecializationException {
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, Car.CarBody.SUV);
         Car bmw = new Car("BMW", "Z8", 3, Car.CarBody.SEDAN);
         Car kia = new Car("Kia", "Sportage 4 поколения", 2.4, Car.CarBody.HATCHBACK);
@@ -30,20 +32,40 @@ public class Racing {
         kia.maxSpeed();
         Driver<Bus> pit = new Driver("Пит", "D", 2, volvoBus);
         Driver<Car> max = new Driver("Макс", "B", 3, audi);
-        Driver<Truck> mikel = new Driver("Maйкл", "C", 3, mercedesTruck);
-        max.startDriving();
-        pit.stopDriving();
-        max.refuel();
-        System.out.println(hyunday);
-        System.out.println(scaniaBus.getBusCapacity());
-        System.out.println(huyndaiBus);
-        System.out.println(liazBus);
-        System.out.println(manTruck);
-        System.out.println(hyundaiTruck);
-        System.out.println(kamazTruck);
-        System.out.println(audi.getDriver().getLicensse());
-        volvoBus.undergoDiagnostics();
-        audi.undergoDiagnostics();
-        mercedesTruck.undergoDiagnostics();
+        Driver<Truck> mikel = new Driver<>("Maйкл", "C", 3, mercedesTruck);
+//        max.startDriving();
+//        pit.stopDriving();
+//        max.refuel();
+//        System.out.println(hyunday);
+//        System.out.println(scaniaBus.getBusCapacity());
+//        System.out.println(huyndaiBus);
+//        System.out.println(liazBus);
+//        System.out.println(manTruck);
+//        System.out.println(hyundaiTruck);
+//        System.out.println(kamazTruck);
+//        System.out.println(audi.getDriver().getLicensse());
+//        volvoBus.undergoDiagnostics();
+//        audi.undergoDiagnostics();
+//        mercedesTruck.undergoDiagnostics();
+        System.out.println(getTransportList());
+        Sponsor john = new Sponsor("Джон");
+        john.makeContribution(1000000, audi);
+        Sponsor joe = new Sponsor("Джо");
+        joe.makeContribution(10000000, audi);
+        System.out.println("\n\n\n\n"+audi);
+        System.out.println(getDriverList());
+        Mechanic armen = new Mechanic("Армэн", "Audi", Mechanic.Specialization.CARS);
+        System.out.println(armen);
+        armen.carryOutMaintenance(audi);
+        audi.addMechanicInTeam(armen);
+        System.out.println(audi);
+    }
+
+    public static String getTransportList() {
+        return "\nСПИСОК ВСЕХ АВТОМОБИЛЕЙ: " + transportList;
+    }
+
+    public static String getDriverList() {
+        return "\nСПИСОК ВСЕХ ВОДИТЕЛЕЙ: " + driverList;
     }
 }

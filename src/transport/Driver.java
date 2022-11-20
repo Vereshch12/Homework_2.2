@@ -19,6 +19,7 @@ public class Driver <T extends Transport & Competing> {
             System.out.println(("Измените категорию прав"));
         }
         car.setDriver(this);
+        Racing.driverList.add(this);
     }
 
     private void setLicensse(String licensse) {
@@ -87,12 +88,6 @@ public class Driver <T extends Transport & Competing> {
         return experience;
     }
 
-    public void setExperience(Integer experience) {
-        if (experience == 0) experience = 1;
-        this.experience = experience;
-    }
-
-
     public void setCar(T car) {
         this.car = car;
     }
@@ -104,17 +99,26 @@ public class Driver <T extends Transport & Competing> {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Driver<?> driver = (Driver<?>) o;
-        return Objects.equals(name, driver.name) && Objects.equals(licensse, driver.licensse) && Objects.equals(experience, driver.experience) && Objects.equals(car, driver.car);
+        return Objects.equals(name, driver.name) && Objects.equals(licensse, driver.licensse) && Objects.equals(experience, driver.experience);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, licensse, experience, car);
+        return Objects.hash(name, licensse, experience);
+    }
+
+    @Override
+    public String toString() {
+        return "\nВодитель: "+ name + "\n   Автомобиль: " + car.getBrand() + " " + car.getModel() +
+                "\n   Стаж: " + experience + "\n   Категория прав: " + licensse;
     }
 }

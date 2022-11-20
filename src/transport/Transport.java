@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Transport {
@@ -12,14 +14,8 @@ public abstract class Transport {
     //protected String motorType;
     protected double engineVolume;
     private Driver driver;
-
-    public Driver getDriver() {
-        return driver;
-    }
-
-    public void setDriver(Driver driver) {
-        this.driver = driver;
-    }
+    private List<Sponsor> sponsors;
+    private List<Mechanic> mechanics;
 
     public void checkNaming (String line){
         if (line == null || line.isEmpty() || line.isBlank()) line= "default";
@@ -52,6 +48,9 @@ public abstract class Transport {
         //this.color = color;
        // this.maxSpeed = maxSpeed;
         //this.motorType = motorType;
+        Racing.transportList.add(this);
+        sponsors = new ArrayList<>();
+        mechanics = new ArrayList<>();
     }
     //protected abstract void refill();
 
@@ -59,8 +58,30 @@ public abstract class Transport {
     public abstract void stopMoving();
 
     public abstract void undergoDiagnostics() throws LicensseCategoryException, PassageOfDiagnosticsException;
+    public void addMechanicInTeam(Mechanic mechanic) throws SpecializationException {
+        mechanic.checkSpecializationAndTransport(this);
+        mechanics.add(mechanic);
+    }
 
+    void acceptContribution(Sponsor sponsor){
+        sponsors.add(sponsor);
+    }
 
+    public List<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
     public String getBrand() {
         return brand;
     }
@@ -83,20 +104,22 @@ public abstract class Transport {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transport transport = (Transport) o;
-        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model);
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(driver, transport.driver) && Objects.equals(sponsors, transport.sponsors);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineVolume);
+        return Objects.hash(brand, model, engineVolume, driver, sponsors);
     }
 
     @Override
     public String toString() {
-        return  "\nКласс объекта: " + getClass() +
+        return  "\n\nКласс объекта: " + getClass() +
                 "\nБренд: " + brand +
                 "\nМодель: " + model +
-                "\nОбъем двигателя: " + engineVolume;
+                "\nОбъем двигателя: " + engineVolume +
+                "\nСпонсоры: " + sponsors +
+                "\nМеханики: " + mechanics;
     }
 
     /*public Integer getProductionYear() {
