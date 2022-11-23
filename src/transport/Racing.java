@@ -54,11 +54,23 @@ public class Racing {
         joe.makeContribution(10000000, audi);
         System.out.println("\n\n\n\n"+audi);
         System.out.println(getDriverList());
-        Mechanic armen = new Mechanic("Армэн", "Audi", Mechanic.Specialization.CARS);
+        Mechanic armen = new Mechanic("Армэн", "Audi", Mechanic.Specialization.ALL);
+        Mechanic anton = new Mechanic("Антон", "Bmw", Mechanic.Specialization.CARS);
         System.out.println(armen);
         armen.carryOutMaintenance(audi);
         audi.addMechanicInTeam(armen);
+        bmw.addMechanicInTeam(anton);
+        mercedesTruck.addMechanicInTeam(armen);
+        huyndaiBus.addMechanicInTeam(armen);
         System.out.println(audi);
+        ServiceStation<Transport> firstServiceStation= new ServiceStation<>("Первая Сервисная Станция");
+        firstServiceStation.addTransportInQueue(audi);
+        firstServiceStation.addTransportInQueue(bmw);
+        firstServiceStation.addTransportInQueue(mercedesTruck);
+        firstServiceStation.addTransportInQueue(hyunday);
+        firstServiceStation.carryOutMaintenanceInServiceStation();
+
+
     }
 
     public static String getTransportList() {

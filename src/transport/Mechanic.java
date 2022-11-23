@@ -49,14 +49,14 @@ public class Mechanic {
     }
 
     protected void checkSpecializationAndTransport(Transport transport) throws SpecializationException {
-        if ((getSpecialization() == Specialization.ALL || getSpecialization() == Specialization.BUSES || getSpecialization() == Specialization.CARSANDBUSES
+        if ((getSpecialization() == Specialization.BUSES || getSpecialization() == Specialization.CARSANDBUSES
          || getSpecialization() == Specialization.TRUCKSANDBUSES) && transport.getClass() != Bus.class){
             throw new SpecializationException("Механик " + name + " не может обслуживать автомобиль " + transport.getBrand() + " " + transport.getModel() + "!");
         } else {
-            if ((getSpecialization() == Specialization.ALL || getSpecialization() == Specialization.CARS || getSpecialization() == Specialization.CARSANDBUSES
+            if ((getSpecialization() == Specialization.CARS || getSpecialization() == Specialization.CARSANDBUSES
                     || getSpecialization() == Specialization.CARSANDTRUCKS) && transport.getClass() != Car.class){
                 throw new SpecializationException("Механик " + name + " не может обслуживать автомобиль " + transport.getBrand() + " " + transport.getModel() + "!");
-            } else if ((getSpecialization() == Specialization.ALL || getSpecialization() == Specialization.TRUCKS || getSpecialization() == Specialization.TRUCKSANDBUSES
+            } else if ((getSpecialization() == Specialization.TRUCKS || getSpecialization() == Specialization.TRUCKSANDBUSES
                     || getSpecialization() == Specialization.CARSANDTRUCKS) && transport.getClass() != Truck.class) {
                 throw new SpecializationException("Механик " + name + " не может обслуживать автомобиль " + transport.getBrand() + " " + transport.getModel() + "!");
             }
@@ -65,7 +65,7 @@ public class Mechanic {
 
     public void carryOutMaintenance(Transport transport) throws SpecializationException {
         checkSpecializationAndTransport(transport);
-        System.out.println("\nПроведено техобслуживание у автомобиля " + transport.getBrand() + " " + transport.getModel()+ ". Механик: " + name);
+        System.out.print("\nПроведено техобслуживание у автомобиля " + transport.getBrand() + " " + transport.getModel()+ ". Механик: " + name);
     }
 
     public void fixTransport(Transport transport) throws SpecializationException {
