@@ -1,10 +1,12 @@
 package transport;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Racing {
-    public static List<Transport> transportList = new ArrayList<>();
-    public static List<Driver> driverList = new ArrayList<>();
+    public static Set<Transport> transportList = new HashSet<>();
+    public static Set<Driver> driverList = new HashSet<>();
 
     public static void main(String[] args) throws LicensseCategoryException, PassageOfDiagnosticsException, SpecializationException {
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, Car.CarBody.SUV);
@@ -69,7 +71,14 @@ public class Racing {
         firstServiceStation.addTransportInQueue(mercedesTruck);
         firstServiceStation.addTransportInQueue(hyunday);
         firstServiceStation.carryOutMaintenanceInServiceStation();
-
+        joe.makeContribution(10000000, audi);
+        System.out.println(audi.getSponsors());
+//        System.out.println(getTransportList());
+        System.out.println(getDriverList());
+        driverList.add(max);
+        System.out.println(getDriverList());
+        audi.addMechanicInTeam(armen);
+        System.out.println(audi.getMechanics());
 
     }
 

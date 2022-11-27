@@ -1,8 +1,6 @@
 package transport;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public abstract class Transport {
     protected String brand;
@@ -14,8 +12,8 @@ public abstract class Transport {
     //protected String motorType;
     protected double engineVolume;
     private Driver driver;
-    private List<Sponsor> sponsors;
-    private List<Mechanic> mechanics;
+    private Set<Sponsor> sponsors = new HashSet<>();;
+    private Set<Mechanic> mechanics = new HashSet<>();
 
     public void checkNaming (String line){
         if (line == null || line.isEmpty() || line.isBlank()) line= "default";
@@ -49,8 +47,6 @@ public abstract class Transport {
        // this.maxSpeed = maxSpeed;
         //this.motorType = motorType;
         Racing.transportList.add(this);
-        sponsors = new ArrayList<>();
-        mechanics = new ArrayList<>();
     }
     //protected abstract void refill();
 
@@ -67,11 +63,11 @@ public abstract class Transport {
         sponsors.add(sponsor);
     }
 
-    public List<Sponsor> getSponsors() {
+    public Set<Sponsor> getSponsors() {
         return sponsors;
     }
 
-    public List<Mechanic> getMechanics() {
+    public Set<Mechanic> getMechanics() {
         return mechanics;
     }
 

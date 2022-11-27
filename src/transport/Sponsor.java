@@ -12,9 +12,14 @@ public class Sponsor {
 
     public void makeContribution (int ante, Transport car){
         if (ante == 0) ante = 1;
-        car.acceptContribution(this);
-        totalAnte += ante;
-        System.out.println("\nСпонсор " + name + " стал спонсором автомобиля " + car.getBrand() + " " + car.getModel() + " на сумму $" + ante);
+        if (car.getSponsors().contains(this)){
+            totalAnte += ante;
+            System.out.println("\nСпонсор " + name + " повторно стал спонсором автомобиля " + car.getBrand() + " " + car.getModel() + " на сумму $" + ante);
+        } else {
+            car.acceptContribution(this);
+            totalAnte += ante;
+            System.out.println("\nСпонсор " + name + " стал спонсором автомобиля " + car.getBrand() + " " + car.getModel() + " на сумму $" + ante);
+        }
     }
 
     public String getName() {
@@ -35,7 +40,7 @@ public class Sponsor {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Sponsor sponsor = (Sponsor) o;
-        return Objects.equals(name, sponsor.name) && Objects.equals(totalAnte, sponsor.totalAnte);
+        return Objects.equals(name, sponsor.name);
     }
 
     @Override

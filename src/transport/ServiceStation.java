@@ -29,7 +29,7 @@ public class ServiceStation <T extends Transport>{
                 carryOutMaintenanceInServiceStation();
             }
             else {
-                transport.getMechanics().get(0).carryOutMaintenance(transport);
+                transport.getMechanics().iterator().next();
                 System.out.println(". Сервисная станция: " + name);
                 carryOutMaintenanceInServiceStation();
             }
